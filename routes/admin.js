@@ -7,9 +7,9 @@ router.post('/auth/admin', controllers.adminLogin);
 
 router.post('/users', checkIfAdmin(), controllers.createUser);
 
-router.put('/users/deactivate', checkIfAdmin(), controllers.deactivateUser);
+router.patch('/users/deactivate', checkIfAdmin(), controllers.deactivateUser);
 
-router.put('/users/reactivate', checkIfAdmin(), controllers.reactivateUser);
+router.patch('/users/reactivate', checkIfAdmin(), controllers.reactivateUser);
 
 router.delete('/users/delete', checkIfAdmin(), controllers.deleteUser);
 
