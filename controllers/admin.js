@@ -30,7 +30,7 @@ exports.createUser = async (req, res, next) => {
         
         user = await User.findOne({ accountNumber: accountNumber });
 
-        while (user) {
+        if (user) {
             accountNumber = uniqid();
             user = await User.findOne({ accountNumber: accountNumber });
         }
@@ -47,6 +47,7 @@ exports.createUser = async (req, res, next) => {
 
         }).save();
 
+        newUser.password = null;
         const plainPassword = data.password;
         return res.status(200).json({ message: "User Created Successfully!", newUser, plainPassword: plainPassword });
     } catch(error) {

@@ -113,7 +113,7 @@ exports.userTransfer = async (req, res, next) => {
             if (foundUser.isActive === false) return res.status(400)
             .json({ message: "Your Account Has Been Deactivated. Please Contact Support To Reactivate." });
 
-            const recipient = await User.findOne({ accountNumber: data.recipient });
+            const recipient = await User.findOne({ accountNumber: data.recipientAccountNumber });
             if (!recipient) return res.status(400)
             .json({ message: "The Recipient's Account Number Is Invalid. Please Check And Try Again!" });
 
