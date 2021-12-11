@@ -6,7 +6,7 @@ The backend for an online banking system, built using Node, Express and MongoDB
 
 ### **User:**
 
-* To login as a user to the online bank, send a POST request to /auth/users/, with a JSON object:
+* To login as a user to the online bank, send a **POST** request to **/auth/users/**, with a JSON object:
 
     ``` JSON
 
@@ -17,9 +17,9 @@ The backend for an online banking system, built using Node, Express and MongoDB
 
     ```
 
-* **To view your dashboard with the list of your transactions, send a GET request with your token included in the header, to /dashboard/**
+* **To view your dashboard with the list of your transactions, send a *GET* request with your token included in the header, to */dashboard/***
 
-* To deposit money into your account, send a POST request with your token included in the header, to /dashboard/deposit/, with a JSON object:
+* To deposit money into your account, send a **POST** request with your token included in the header, to **/dashboard/deposit/**, with a JSON object:
 
     ``` JSON
 
@@ -30,7 +30,7 @@ The backend for an online banking system, built using Node, Express and MongoDB
 
     ```
 
-* To withdraw money from your account, send a POST request with your token included in the header, to /dashboard/withdraw/, with a JSON object:
+* To withdraw money from your account, send a **POST** request with your token included in the header, to **/dashboard/withdraw/**, with a JSON object:
 
     ``` JSON
 
@@ -41,7 +41,7 @@ The backend for an online banking system, built using Node, Express and MongoDB
 
     ```
 
-* To transfer money from your account to another account, send a POST request with your token included in the header, to /dashboard/transfer/, with a JSON object:
+* To transfer money from your account to another account, send a **POST** request with your token included in the header, to **/dashboard/transfer/**, with a JSON object:
 
     ``` JSON
 
@@ -55,9 +55,9 @@ The backend for an online banking system, built using Node, Express and MongoDB
 
 ### **Admin:**
 
-*Important Note:* **Admins are seeded on server startup, using information from your .env file. Please check the 'dev.example.env' file for the list of needed variables**
+*Important Note:* **Admins are seeded on server startup, using information from your .env file. Please check the *'dev.example.env'* file for the list of needed variables**
 
-* To login as a admin to the online bank, send a POST request to /auth/admin/, with a JSON object:
+* To login as a admin to the online bank, send a **POST** request to **/auth/admin/**, with a JSON object:
 
     ``` JSON
 
@@ -68,7 +68,7 @@ The backend for an online banking system, built using Node, Express and MongoDB
 
     ```
 
-* To add a new user, send a POST request with your token included in the header, to /users/, with a JSON object:
+* To add a new user, send a **POST** request with your token included in the header, to **/users/**, with a JSON object:
 
     ``` JSON
 
@@ -82,7 +82,7 @@ The backend for an online banking system, built using Node, Express and MongoDB
 
     ```
 
-* To deactivate a user, send a PUT request with your token included in the header, to /users/deactivate/, with a JSON object:
+* To deactivate a user, send a **PATCH** request with your token included in the header, to **/users/deactivate/**, with a JSON object:
 
     ``` JSON
 
@@ -92,7 +92,7 @@ The backend for an online banking system, built using Node, Express and MongoDB
 
     ```
 
-* To reactivate a user, send a PUT request with your token included in the header, to /users/reactivate/, with a JSON object:
+* To reactivate a user, send a **PATCH** request with your token included in the header, to **/users/reactivate/**, with a JSON object:
 
     ``` JSON
 
@@ -102,7 +102,7 @@ The backend for an online banking system, built using Node, Express and MongoDB
 
     ```
 
-* To delete a user, send a DELETE request with your token included in the header, to /users/delete/, with a JSON object:
+* To delete a user, send a **DELETE** request with your token included in the header, to **/users/delete/**, with a JSON object:
 
     ``` JSON
 
@@ -112,7 +112,7 @@ The backend for an online banking system, built using Node, Express and MongoDB
 
     ```
 
-* To reverse a transfer of funds between two users, send a POST request with your token included in the header, to /users/reverse/, with a JSON object:
+* To reverse a transfer of funds between two users, send a **POST** request with your token included in the header, to **/users/reverse/**, with a JSON object:
 
     ``` JSON
 
@@ -121,3 +121,5 @@ The backend for an online banking system, built using Node, Express and MongoDB
         }
 
     ```
+
+Enjoy!!!
