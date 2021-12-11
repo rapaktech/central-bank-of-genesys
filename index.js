@@ -4,6 +4,8 @@ const express = require('express');
 const app = express();
 const userRoutes = require('./routes/user');
 const adminRoutes = require('./routes/admin');
+const seedAdmin = require('./seeders/admin');
+const connectToDB = require('./db/setup');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -28,4 +30,8 @@ app.use((error, req, res, next)=> {
     return res.status(500).json({ message: 'Some Error Occured. Please Try Again Later!' });
 });
 
-module.exports = app;
+app.listen(port, async () => {
+    await connectToDB();
+    await seedAdmin();
+    console.log(`Server is live at port ${port}`);
+});
