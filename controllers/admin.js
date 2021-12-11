@@ -8,6 +8,9 @@ const uniqid = require('../services/uniqid');
 
 exports.adminLogin = async (req, res, next) => {
     const data = req.body;
+
+    if (!data.email || !data.password) return res.status(400).json({ message: "One Or More Input Fields Are Empty!" });
+    
     try {
         const admin = await Admin.findOne({ email: data.email });
         const isValidPassword = await verifyPassword(data.password, admin.password);
@@ -22,6 +25,11 @@ exports.adminLogin = async (req, res, next) => {
 
 exports.createUser = async (req, res, next) => {
     const data = req.body;
+
+    if (!data.email || !data.password || !data.firstName || !data.lastName || !data.startDeposit) {
+        return res.status(400).json({ message: "One Or More Input Fields Are Empty!" });
+    }
+
     try {
         let accountNumber = uniqid();
 
@@ -57,6 +65,11 @@ exports.createUser = async (req, res, next) => {
 
 exports.deactivateUser = async (req, res, next) => {
     const userId = req.body.userId;
+
+    if (!userId) {
+        return res.status(400).json({ message: "One Or More Input Fields Are Empty!" });
+    }
+
     try {
         const updatedUser = await User.findByIdAndUpdate(userId, {
             $set: {
@@ -76,6 +89,11 @@ exports.deactivateUser = async (req, res, next) => {
 
 exports.reactivateUser = async (req, res, next) => {
     const userId = req.body.userId;
+
+    if (!userId) {
+        return res.status(400).json({ message: "One Or More Input Fields Are Empty!" });
+    }
+
     try {
         const updatedUser = await User.findByIdAndUpdate(userId, {
             $set: {
@@ -95,6 +113,11 @@ exports.reactivateUser = async (req, res, next) => {
 
 exports.deleteUser = async (req, res, next) => {
     const userId = req.body.userId;
+
+    if (!userId) {
+        return res.status(400).json({ message: "One Or More Input Fields Are Empty!" });
+    }
+
     try {
         const deletedUser = await User.findByIdAndDelete(userId);
         if (deletedUser) return res.status(200).json({ message: "User Deleted Successfully!", deletedUser });
@@ -106,6 +129,11 @@ exports.deleteUser = async (req, res, next) => {
 
 exports.reverseTransaction = async (req, res, next) => {
     const transactionId = req.body.transactionId;
+
+    if (!transactionId) {
+        return res.status(400).json({ message: "One Or More Input Fields Are Empty!" });
+    }
+
     try {
         const transaction = await Transaction.findById(transactionId);
         if (!transaction) return res.status(400).json({ message: "Transaction Not Found. Please Check ID and try again "});
@@ -115,7 +143,7 @@ exports.reverseTransaction = async (req, res, next) => {
 
         User.findById(senderId, async function (err, foundUser) {
             if (err) throw err;
-            if (!foundUser) return res.status(400).json({ message: "Invalid User" });
+            if (!foundUser) return res.status(400).json({ message: "Invalid User!" });
 
             const recipient = await User.findById(receiverId);
             if (!recipient) return res.status(400)

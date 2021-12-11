@@ -5,6 +5,11 @@ const { signToken } = require('../services/jwt');
 
 exports.userLogin = async (req, res) => {
     const data = req.body;
+
+    if (!data.email || !data.password) {
+        return res.status(400).json({ message: "One Or More Input Fields Are Empty!" });
+    }
+
     try {
         const user = await User.findOne({ email: data.email });
         const isValidPassword = await verifyPassword(data.password, user.password);
@@ -29,6 +34,11 @@ exports.userDashboard = async (req, res, next) => {
 
 exports.userDeposit = async (req, res, next) => {
     const data = req.body;
+
+    if (!data.amount || !data.description) {
+        return res.status(400).json({ message: "One Or More Input Fields Are Empty!" });
+    }
+
     const user = req.user;
     try {
         User.findOne({ _id: user.id, email: user.email }, async function (err, foundUser) {
@@ -67,6 +77,11 @@ exports.userDeposit = async (req, res, next) => {
 
 exports.userWithdrawal = async (req, res, next) => {
     const data = req.body;
+
+    if (!data.amount || !data.description) {
+        return res.status(400).json({ message: "One Or More Input Fields Are Empty!" });
+    }
+
     const user = req.user;
     try {
         User.findOne({ _id: user.id, email: user.email }, async function (err, foundUser) {
@@ -105,6 +120,11 @@ exports.userWithdrawal = async (req, res, next) => {
 
 exports.userTransfer = async (req, res, next) => {
     const data = req.body;
+
+    if (!data.amount || !data.recipientAccountNumber || !data.description) {
+        return res.status(400).json({ message: "One Or More Input Fields Are Empty!" });
+    }
+
     const user = req.user;
     try {
         User.findOne({ _id: user.id, email: user.email }, async function (err, foundUser) {
