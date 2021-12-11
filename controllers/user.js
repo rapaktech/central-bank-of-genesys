@@ -3,7 +3,7 @@ const Transaction = require('./../models/transaction');
 const { verifyPassword } = require('../services/bcrypt');
 const { signToken } = require('../services/jwt');
 
-exports.userLogin = async (req, res) => {
+exports.userLogin = async (req, res, next) => {
     const data = req.body;
 
     if (!data.email || !data.password) {
@@ -18,7 +18,7 @@ exports.userLogin = async (req, res) => {
         user.password = null;
         return res.status(201).json({ message: "User Logged In Successfully!", token, user });
     } catch (error) {
-        console.log(error);
+        next(error);
     } 
 }
 
