@@ -1,6 +1,6 @@
 # Central Bank of Genesys
 
-* Overview:
+## Overview:
 
 Congratulations! The year is 2022 and you have been given a job as a backend developer with the
 team at Genesys DevStudio.
@@ -24,9 +24,3 @@ with the following features:
 * Delete users
 * Reverse transactions(transfer)
 * Disable a user’s account
-
-*Added admin funcionality:*
-
-* View all users
-* View a single user
-* View a single user's transactions
