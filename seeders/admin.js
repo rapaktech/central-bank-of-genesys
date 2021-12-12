@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('custom-env').env('staging');
 const Admin = require('./../models/admin');
 const { hashPassword } = require('../services/bcrypt');
 const firstName = process.env.ADMIN_FIRSTNAME;

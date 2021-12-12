@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('custom-env').env('staging');
 const bcrypt = require('bcrypt');
 const saltRounds = Number(process.env.SALT_ROUNDS);
 

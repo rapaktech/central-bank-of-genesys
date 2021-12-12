@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('custom-env').env('staging');
 const jwt = require('jsonwebtoken');
 const jwtSecretKey = process.env.JWT_SECRET_KEY;
 

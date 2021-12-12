@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('custom-env').env('staging');
 const mongoose = require('mongoose');
 const mongoURI = process.env.MONGO_URI;
 

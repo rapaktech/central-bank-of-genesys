@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('custom-env').env('staging');
 const port = process.env.PORT;
 const express = require('express');
 const app = express();
