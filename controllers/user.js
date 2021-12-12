@@ -26,6 +26,7 @@ exports.userDashboard = async (req, res, next) => {
     const user = req.user;
     try {
         const foundUser = await User.findOne({ _id: user.id, email: user.email }).populate({ path: 'transactions' });
+        foundUser.password = null;
         return res.status(201).json({ message: "Here's Your Dashboard: ", foundUser });
     } catch (error) {
         next(error);
