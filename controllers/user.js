@@ -1,7 +1,7 @@
 const User = require('./../models/user');
 const Transaction = require('./../models/transaction');
-const { verifyPassword } = require('../services/bcrypt');
-const { signToken } = require('../services/jwt');
+const { verifyPassword } = require('./../services/bcrypt');
+const { signToken } = require('./../services/jwt');
 
 exports.userLogin = async (req, res, next) => {
     const data = req.body;
