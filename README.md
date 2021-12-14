@@ -4,6 +4,8 @@ The backend for an online banking system, built using Node, Express and MongoDB
 
 ## *API Use Guide:*
 
+To run unit tests, use the **'dev'** branch
+
 ### **User:**
 
 * To login as a user to the online bank, send a **POST** request to **/auth/users/**, with a JSON object:
