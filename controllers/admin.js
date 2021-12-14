@@ -1,10 +1,10 @@
 const Admin = require('./../models/admin');
 const User = require('./../models/user');
 const Transaction = require('./../models/transaction');
-const { hashPassword } = require('../services/bcrypt');
-const { verifyPassword } = require('../services/bcrypt');
-const { signToken } = require('../services/jwt');
-const uniqid = require('../services/uniqid');
+const { hashPassword } = require('./../services/bcrypt');
+const { verifyPassword } = require('./../services/bcrypt');
+const { signToken } = require('./../services/jwt');
+const uniqid = require('./../services/uniqid');
 
 exports.adminLogin = async (req, res, next) => {
     const data = req.body;

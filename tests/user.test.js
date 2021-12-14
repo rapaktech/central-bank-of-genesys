@@ -1,8 +1,8 @@
 const supertest = require('supertest');
 const mongoose = require('mongoose');
 const app = require('../index');
-const seedAdmin = require('../seeders/admin');
-const connectToDB = require('../db/setup');
+const seedAdmin = require('./../seeders/admin');
+const connectToDB = require('./../db/setup');
 
 beforeAll(async () => {
     await connectToDB();
@@ -10,7 +10,9 @@ beforeAll(async () => {
 });
 
 afterAll((done) => {
-    mongoose.connection.close(() => done());
+    mongoose.connection.db.dropDatabase(() => {
+        mongoose.connection.close(() => done());
+    });
 });
 
 

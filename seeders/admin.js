@@ -1,6 +1,6 @@
 require('custom-env').env('staging');
 const Admin = require('./../models/admin');
-const { hashPassword } = require('../services/bcrypt');
+const { hashPassword } = require('./../services/bcrypt');
 const firstName = process.env.ADMIN_FIRSTNAME;
 const lastName = process.env.ADMIN_LASTNAME;
 const email = process.env.ADMIN_EMAIL;
